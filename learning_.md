@@ -25,3 +25,7 @@
 
 9. 为什么 Transformer 需要做 KV 缓存？
 在推理阶段（Inference），Transformer（尤其是 decoder，比如 GPT 类模型）是 一个词一个词地生成输出 的。每次生成时都会之前生成的所有 token 作为输入。
+
+10.除根dk严谨点的解释: 假设qk独立，q正态分布，k正态分布，则qk的方差是维度dk，qk/根dk的方差是1。这样一来qk内积的更不容易很大或很小，其梯度也不容易会过大过小，以及发生softmax上下溢出。保证模型收敛稳定性。
+
+11. 为什么使用layernorm BatchNorm（批归一化）归一化方式：对每个特征维度在 batch 中求均值和方差   LayerNorm（层归一化） 归一化方式：对单个样本内部所有特征做归一化  
