@@ -1,0 +1,22 @@
+1.位置编码的计算
+
+数学公式：
+    PE(pos, 2i) = sin(pos / 10000^(2i/d_model))
+    PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))
+
+在使用python进行计算的时候 对公式进行转换    转换为 （postion * e^((-2i*log(10000))/d_model)） ==> div * position  div为公共部分  然后再分别对奇偶地址进行求解
+
+2.求解注意力得分
+  Q与K的转制点积再除去根号d_  在进行softmax后再乘 V  
+  
+3.将输入的 Q、K、V 向量分别投影到多个子空间（多个头）中，并行计算注意力，最后将各头的结果 拼接 + 再投影 合并成最终输出。
+
+4.Decoder中的mask是两个mask合并形成的  padding mask 与 causal mask 合并之后得到mask用于decoder
+
+5.Embedding 不是通过 one-hot 编码“降维”得到的，而是通过查表操作从一个可学习的向量矩阵中检索 token 的语义向量表示。
+  数学上等价于 one-hot × W（W为embedding矩阵），但实现上完全跳过了 one-hot。
+
+6，残差网络 避免梯度消失  --》dropout   将x1逐层传递防止梯度消失
+   归一化（LayerNorm）  做标准化   限制区间  避免梯度爆炸
+
+7.前馈神经网络（Feed Forward）Relu（wx+b）（Relu为激活函数）， 前面每一步都在做线性变换，wx+b，线性变换的叠加永远都是线性变换，通过Feed Forward
