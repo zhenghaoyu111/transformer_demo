@@ -184,11 +184,11 @@
 基于公开的测试数据分析每一个vad的优劣：
 
 - Silero v4版本：数据来源：（https://github.com/snakers4/silero-vad/wiki/Quality-Metrics/7a0eb82468f5e58f46c7224a53bc3ec29facbcdd?utm_source=chatgpt.com）
-!(./image-1)
+!(./image-1.png)
 ![[image-1.png]]
-!(./image-2)
+!(./image-2.png)
 ![[image-2.png]]
-!(./image-3)
+!(./image-3.png)
 ![[image-3.png]]
 在 LibriParty 和 AVA 数据集上，Silero v4 相比 v3 在 Precision-Recall 表现上有明显提升，特别是在高 Recall 区域，v4 能保持接近 1 的高 Precision，而 v3 在 Recall 接近 1 时 Precision 出现大幅下降，说明 **v4 在检测更多语音时依然能保持较低误报率**，整体性能更加稳健。
 对比 Silero 模型在 16kHz 和 8kHz 采样率下的表现，可以看到两者在 Precision-Recall 曲线上的差距非常小，16kHz 略微优于 8kHz，尤其在 LibriParty 数据集上表现更平滑，说明 **采样率对模型性能影响不大，但高采样率在嘈杂环境下可能更鲁棒**。
