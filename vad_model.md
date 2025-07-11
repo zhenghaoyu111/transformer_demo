@@ -184,8 +184,11 @@
 基于公开的测试数据分析每一个vad的优劣：
 
 - Silero v4版本：数据来源：（https://github.com/snakers4/silero-vad/wiki/Quality-Metrics/7a0eb82468f5e58f46c7224a53bc3ec29facbcdd?utm_source=chatgpt.com）
+!(./image-1)
 ![[image-1.png]]
+!(./image-2)
 ![[image-2.png]]
+!(./image-3)
 ![[image-3.png]]
 在 LibriParty 和 AVA 数据集上，Silero v4 相比 v3 在 Precision-Recall 表现上有明显提升，特别是在高 Recall 区域，v4 能保持接近 1 的高 Precision，而 v3 在 Recall 接近 1 时 Precision 出现大幅下降，说明 **v4 在检测更多语音时依然能保持较低误报率**，整体性能更加稳健。
 对比 Silero 模型在 16kHz 和 8kHz 采样率下的表现，可以看到两者在 Precision-Recall 曲线上的差距非常小，16kHz 略微优于 8kHz，尤其在 LibriParty 数据集上表现更平滑，说明 **采样率对模型性能影响不大，但高采样率在嘈杂环境下可能更鲁棒**。
@@ -230,7 +233,7 @@ WebRTC VAD 表现稳健于干净音频 (precision ~0.89/ recall ~0.76)，但在�
 📊 **结论**：TEN‑VAD 在此测试集上的综合性能**显著优于** Silero 和 WebRTC，是一个更稳健的 VAD 模型。
 ![[image-8.png]]
 如上图图所示，TEN VAD 能够快速检测语音到非语音的转换，而 Silero VAD 则存在数百毫秒的延迟，导致人机交互系统的端到端延迟增加。此外，如 6.5 秒到 7.0 秒的音频片段所示，Silero VAD 无法识别相邻语音片段之间的短暂静默。
-![[image-9.png]]
+![[Pasted image 20250711152314.png]]
 在五个不同的平台上评估了 RTF（实时因子），每个平台配备了不同的 CPU。TEN VAD 的计算复杂度远低于 Silero VAD，库大小也更小。
 **支持的采样率和跳数：**
 TEN VAD 以 16kHz 音频输入运行，并可配置跳数（优化帧配置：160/256 个样本 = 10/16ms）。其他采样率必须重新采样至 16kHz。
