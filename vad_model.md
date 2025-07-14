@@ -184,6 +184,7 @@
 基于公开的测试数据分析每一个vad的优劣：
 
 - Silero v4版本：数据来源：（https://github.com/snakers4/silero-vad/wiki/Quality-Metrics/7a0eb82468f5e58f46c7224a53bc3ec29facbcdd?utm_source=chatgpt.com）
+- 2022 年底
 ![](./image-1.png)
 ![](./image-2.png)
 
@@ -196,6 +197,7 @@ Silero 在 LibriParty 和 AVA 数据集上的 Precision-Recall 表现显著优�
 **Silero v4 在干净与复杂环境下的 VAD 检测性能均优于旧版本和其他主流模型，兼顾高灵敏度和低误检率，是当前极具竞争力的轻量级 VAD 解决方案。**
 
 - FSMN-VAD（来源：https://arxiv.org/pdf/2312.14860）
+- **2023 年 12 月**
 ![](./image-4.png)
 ![](./image-5.png)
 - **实时系统（Real‑time）**：
@@ -226,6 +228,7 @@ WebRTC VAD 表现稳健于干净音频 (precision ~0.89/ recall ~0.76)，但在�
 总结： MarbleNet VAD 在 **标准单语环境** 下表现良好，而 **多语种模型** 在更复杂的场景下性能进一步提高，适合应用于多语言的国际化产品。
 
 - TEN-VAD   数据来源：https://huggingface.co/TEN-framework/ten-vad?utm_source=chatgpt.com
+-  **2025 年 6 月**
 ![](./image-7.png)
 - **TEN‑VAD（红色曲线）** 在整个召回率范围内保持最高的精确率（Precision），曲线最靠近 (1,1) 的理想点，说明它综合了更少的误报和漏检。
 - **Silero VAD（蓝色曲线）** 的表现次之，虽然也维持较高精确率，但相比 TEN‑VAD 在高召回率时精度下降更明显。
