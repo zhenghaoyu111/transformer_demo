@@ -85,7 +85,7 @@
 2. 召回率 (Recall) / 灵敏度 (Sensitivity)
 - **中文解释**: 实际语音帧中，被检测出来的比例（降低漏报）。
 - **公式**:  
-  <span style="display: inline-block;">\( Recall = \frac{TP}{TP + FN} \)</span>
+  `Recall = TP / (TP + FN)`
   - **FN**: 假阴性（语音漏检）
   - **TN (真阴性)**：指实际为负类，模型也正确预测为负类的样本数。
 
