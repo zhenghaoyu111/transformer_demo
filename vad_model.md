@@ -76,7 +76,7 @@
  1. 精确率 (Precision)
 - **中文解释**: 检测为语音的帧中，实际是语音的比例（降低误报）。
 - **公式**:  
-  <span style="display: inline-block;">\( Precision = \frac{TP}{TP + FP} \)</span>
+   `Precision = TP / (TP + FP)`
   - **TP**: 真阳性（语音检测正确）  
   - **FP**: 假阳性（非语音误检为语音）
 
